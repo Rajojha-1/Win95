@@ -84,3 +84,109 @@ body {
     width: 25px;
     background-color: #7B7D7B;
 }
+.time{
+  height: auto;
+  width: auto;
+  background-color: #c0c0c0;
+  z-index: 1000;
+  bottom: 0;
+  display: flex;
+  position: absolute;
+  right: 0;
+  margin: 5px;
+  box-sizing: border-box;
+  /* outline: 2px solid black; */
+  box-shadow: 1.5px 1.5px #fff;
+  border-top: 1px solid black;
+  border-left: 0.1rem solid black;
+  justify-content: center;
+  align-items: center;
+}
+.clock{
+  font-size: 14px;
+  font-family: 'Perfect DOS VGA 437', monospace;
+  font-weight: normal;
+  color: #000;
+  /* padding :5px 5px 5px 5px; */
+  margin: 5px;
+  text-wrap: nowrap;
+  word-spacing: -2px;
+  /* line-height: 1; */
+  -webkit-font-smoothing: none;
+-moz-osx-font-smoothing: grayscale;
+font-smooth: never;
+
+}
+.icons {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 20px;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+  padding: 5px;
+  border: 1px solid transparent; /* invisible border initially */
+  border-radius: 2px;
+}
+
+.icon-img {
+  width: 48px;
+  height: 48px;
+}
+
+.icon-label {
+  font-size: 16px;
+  font-family: 'Perfect DOS VGA 437', monospace;
+  color: #f8f1f1;
+  text-align: center;
+  margin-top: 8px;
+  text-wrap: nowrap;
+}
+
+.icon.selected {
+  background-color: rgba(0, 0, 139, 0.3);  /* dark blue, low opacity */
+  border-color: #00008B;
+}
+.window {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 300px;
+  height: 200px;
+  border: 2px solid #000;
+  background: #c0c0c0;
+  box-shadow: 3px 3px #808080;
+  display: none;
+  resize: both;
+  overflow: auto;
+  z-index: 1000;
+}
+
+.window-titlebar {
+  background: #00008B;
+  color: #fff;
+  padding: 2px 5px;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.window-controls button {
+  font-size: 10px;
+  padding: 0 4px;
+  margin-left: 2px;
+  background: #c0c0c0;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.window-content {
+  padding: 10px;
+}

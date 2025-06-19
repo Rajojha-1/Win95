@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Janhavi</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.cdnfonts.com/css/perfect-dos-vga-437" rel="stylesheet">
+
 </head>
 <body>
   <div class="task-manager">
@@ -20,6 +22,43 @@
     <img src="/assets/sidebar-image.Cvh9Zs2s.png" alt="windows95" class="windows95">
     <div class="gray"></div>
   </div>
+<div class="time">
+  <div class="clock">what</div>
+</div>
+<div class="icons">
+  <div class="icon" ondblclick="openFolder('My Computer')">
+    <img src="/assets/Computer.png" alt="computer-icon" class="icon-img" />
+    <div class="icon-label">Computer</div>
+  </div>
+
+  <div class="icon" ondblclick="openFolder('Camera')">
+    <img src="/assets/camera.png" alt="camera-icon" class="icon-img" />
+    <div class="icon-label">Camera</div>
+  </div>
+
+  <div class="icon" ondblclick="openFolder('Folder')">
+    <img src="/assets/folder.png" alt="folder-icon" class="icon-img" />
+    <div class="icon-label">Folder</div>
+  </div>
+
+  <div class="icon" ondblclick="openFolder('Mail')">
+    <img src="/assets/mail.png" alt="mail-icon" class="icon-img" />
+    <div class="icon-label">Mail</div>
+  </div>
+</div>
+<div class="window" id="folderWindow">
+  <div class="window-titlebar">
+    <span class="title">Folder</span>
+    <div class="window-controls">
+      <button class="resize"></button>
+      <button class="minimize">_</button>
+      <button class="close">X</button>
+    </div>
+  </div>
+  <div class="window-content">
+    <p>This is your folder content!</p>
+  </div>
+</div>
 
   <script src="script.js"></script>
 </body>
