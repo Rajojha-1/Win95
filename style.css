@@ -195,3 +195,22 @@ font-smooth: never;
 }
 .computer-window{
 }
+.taskbar-button {
+  padding: 2px 6px;
+  background: #C0C0C0;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  font-family: 'MS Sans Serif';
+  font-size: 14px;
+  margin: 0 2px;
+  cursor: pointer;
+}
+.taskbar-button:hover {
+  background: #a9a9a9;
+}
+#taskbar-windows .taskbar-button:first-child {
+  margin-left: 80px;
+}
+

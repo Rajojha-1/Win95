@@ -86,7 +86,7 @@ function openFolder(name, contentHTML) {
       const taskBtn = document.createElement('button');
       taskBtn.id = `task-${name}`;
       taskBtn.textContent = name;
-      taskBtn.style.margin = '0 2px';
+      taskBtn.className = 'taskbar-button';
       taskBtn.addEventListener('click', () => {
         win.style.display = 'block';
         taskBtn.remove();
