@@ -135,8 +135,8 @@ font-smooth: never;
 }
 
 .icon-img {
-  width: 48px;
-  height: 48px;
+  width: 35px;
+  height: 35px;
 }
 
 .icon-label {
@@ -158,9 +158,11 @@ font-smooth: never;
   left: 100px;
   width: 300px;
   height: 200px;
-  border: 2px solid #000;
+  border: 2px solid #fff;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
   background: #c0c0c0;
-  box-shadow: 3px 3px #808080;
+  box-shadow: 2px 2px #000, inset -1px -1px #808080, inset 1px 1px #fff;
   display: none;
   resize: both;
   overflow: auto;
@@ -170,7 +172,7 @@ font-smooth: never;
 .window-titlebar {
   background: #00008B;
   color: #fff;
-  padding: 2px 5px;
+  padding: 4px 5px;
   cursor: move;
   display: flex;
   justify-content: space-between;
@@ -179,7 +181,8 @@ font-smooth: never;
 }
 
 .window-controls button {
-  font-size: 10px;
+  font-size: 15px;
+  font-weight: bold;
   padding: 0 4px;
   margin-left: 2px;
   background: #c0c0c0;
@@ -189,4 +192,6 @@ font-smooth: never;
 
 .window-content {
   padding: 10px;
+}
+.computer-window{
 }

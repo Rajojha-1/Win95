@@ -6,59 +6,62 @@
   <title>Janhavi</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.cdnfonts.com/css/perfect-dos-vga-437" rel="stylesheet">
-
 </head>
 <body>
   <div class="task-manager">
-
-  <div class="act-start-button" id="startButton">
-    <img src="/assets/win95 start.png" alt="Win95-start-logo" class="start-logo" />
-    <div class="start">Start</div>
-</div>
-</div>
-
+    <div class="act-start-button" id="startButton">
+      <img src="/assets/win95 start.png" alt="Win95-start-logo" class="start-logo" />
+      <div class="start">Start</div>
+    </div>
+    <div id="taskbar-windows"></div>
+  </div>
 
   <div class="start-menu" id="startMenu">
     <img src="/assets/sidebar-image.Cvh9Zs2s.png" alt="windows95" class="windows95">
     <div class="gray"></div>
   </div>
-<div class="time">
-  <div class="clock">what</div>
-</div>
-<div class="icons">
-  <div class="icon" ondblclick="openFolder('My Computer')">
-    <img src="/assets/Computer.png" alt="computer-icon" class="icon-img" />
-    <div class="icon-label">Computer</div>
+
+  <div class="time">
+    <div class="clock">what</div>
   </div>
 
-  <div class="icon" ondblclick="openFolder('Camera')">
-    <img src="/assets/camera.png" alt="camera-icon" class="icon-img" />
-    <div class="icon-label">Camera</div>
-  </div>
+  <div class="icons">
+    <div class="icon" ondblclick='openFolder("Computer", `
+      <div class="computer-window"></div>
+    `)'>
+      <img src="/assets/Computer.png" alt="computer-icon" class="icon-img" />
+      <div class="icon-label">Computer</div>
+    </div>
 
-  <div class="icon" ondblclick="openFolder('Folder')">
-    <img src="/assets/folder.png" alt="folder-icon" class="icon-img" />
-    <div class="icon-label">Folder</div>
-  </div>
+    <div class="icon" ondblclick="openFolder('Camera', `
+      <h2>Camera</h2>
+      <img src='/assets/camera-preview.png' style='width:100px;'>
+      <p>Ready to snap a photo!</p>
+    `)">
+      <img src="/assets/camera.png" alt="camera-icon" class="icon-img" />
+      <div class="icon-label">Camera</div>
+    </div>
 
-  <div class="icon" ondblclick="openFolder('Mail')">
-    <img src="/assets/mail.png" alt="mail-icon" class="icon-img" />
-    <div class="icon-label">Mail</div>
-  </div>
-</div>
-<div class="window" id="folderWindow">
-  <div class="window-titlebar">
-    <span class="title">Folder</span>
-    <div class="window-controls">
-      <button class="resize"></button>
-      <button class="minimize">_</button>
-      <button class="close">X</button>
+    <div class="icon" ondblclick="openFolder('Folder', `
+      <h2>My Folder</h2>
+      <p>This folder contains documents and images.</p>
+      <ul>
+        <li>Document1.txt</li>
+        <li>Image1.png</li>
+      </ul>
+    `)">
+      <img src="/assets/folder.png" alt="folder-icon" class="icon-img" />
+      <div class="icon-label">Folder</div>
+    </div>
+
+    <div class="icon" ondblclick="openFolder('Mail', `
+      <h2>Inbox</h2>
+      <p>You have <strong>2 new messages</strong>.</p>
+    `)">
+      <img src="/assets/mail.png" alt="mail-icon" class="icon-img" />
+      <div class="icon-label">Mail</div>
     </div>
   </div>
-  <div class="window-content">
-    <p>This is your folder content!</p>
-  </div>
-</div>
 
   <script src="script.js"></script>
 </body>
