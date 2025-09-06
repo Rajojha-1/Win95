@@ -66,8 +66,8 @@
     'vacations': {
       name: 'Vacations',
       content: folderWindowTemplate(
-        `<div class="photo-item" data-src="/assets/win95 start.png" data-size="15328">
-            <img src="/assets/Photo_icon.png" class="photo-item-thumbnail" alt="Photo Icon">
+        `<div class="photo-item" data-src="assets/win95 start.png" data-size="15328">
+            <img src="assets/Photo_icon.png" class="photo-item-thumbnail" alt="Photo Icon">
             <span class="photo-item-label">win95_start.png</span>
         </div>`
       )
