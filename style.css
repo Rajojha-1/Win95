@@ -1,3 +1,16 @@
+:root {
+  --bg-color: #008080;
+  --surface-color: #c0c0c0;
+  --shadow-dark: #404040;
+  --shadow-light: #ffffff;
+  --shadow-black: #000000;
+  --interactive-highlight: #000080;
+  --interactive-highlight-text: #ffffff;
+  --text-color: #000000;
+  --window-title-start: #00008B;
+  --window-title-end: #0000FF;
+}
+
 body {
   background-color: #008080;
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><rect width="2" height="2" fill="%23008080"/><rect x="2" y="2" width="2" height="2" fill="%23008080"/></svg>');
@@ -8,41 +21,46 @@ body {
   image-rendering: pixelated;
   overflow: hidden;
 }
+
+.beveled-box {
+  background-color: var(--surface-color);
+  border-top: 1px solid var(--shadow-light);
+  border-left: 1px solid var(--shadow-light);
+  border-right: 1px solid var(--shadow-dark);
+  border-bottom: 1px solid var(--shadow-dark);
+  box-shadow: 1px 1px 0 var(--shadow-black);
+}
+
+.beveled-box-inset {
+  border-top: 1px solid var(--shadow-dark);
+  border-left: 1px solid var(--shadow-dark);
+  border-right: 1px solid var(--shadow-light);
+  border-bottom: 1px solid var(--shadow-light);
+  box-shadow: inset 1px 1px 0 var(--shadow-black);
+}
+
 .task-manager {
   position: fixed;
   width: 100%;
   height: 35px;
   display: flex;
   align-items: center;
-  background: linear-gradient(to bottom, #c0c0c0 0%, #808080 100%);
-  border-top: 1px solid #ffffff;
+  background-color: var(--surface-color);
+  border-top: 1px solid var(--shadow-light);
   bottom: 0;
   left: 0;
   z-index: 1000;
-  box-shadow: inset 0 1px 0 #ffffff;
 }
 .act-start-button {
-  position: fixed;
-  background: linear-gradient(to bottom, #c0c0c0 0%, #808080 100%);
   display: flex;
   align-items: center;
   padding: 2px 6px;
   margin: 3px;
-  border-top: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
-  border-right: 1px solid #404040;
-  border-bottom: 1px solid #404040;
   cursor: pointer;
   z-index: 1001;
-  box-shadow: 1px 1px 0 #000000;
 }
 .act-start-button.active {
-  background: #c0c0c0;
-  border-top: 1px solid #404040;
-  border-left: 1px solid #404040;
-  border-right: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
-  box-shadow: inset 1px 1px 0 #000000;
+  background: var(--surface-color);
 }
 .start-logo {
   width: 16px;
@@ -59,14 +77,9 @@ body {
   position: fixed;
   bottom: 35px;
   left: 0px;
-  background: #c0c0c0;
   height: 300px;
   width: 200px;
-  border-top: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
-  border-right: 1px solid #404040;
-  border-bottom: 1px solid #404040;
-  box-shadow: 2px 2px 0 #000000;
+  box-shadow: 2px 2px 0 var(--shadow-black);
   padding: 0;
   display: none;
   font-family: inherit;
@@ -80,16 +93,15 @@ body {
     height: 150px;
     width: 30px;
 }
-.gray{
-    height: 150px;
-    width: 30px;
-    background-color: #808080;
-    border-right: 1px solid #404040;
+.start-menu-sidebar-bg{
+    height: 100%;
+    width: 100%;
+    background-color: var(--surface-color);
+    border-right: 1px solid var(--shadow-dark);
 }
 .time{
   height: auto;
   width: auto;
-  background: linear-gradient(to bottom, #c0c0c0 0%, #808080 100%);
   z-index: 1000;
   bottom: 0;
   display: flex;
@@ -97,11 +109,6 @@ body {
   right: 0;
   margin: 3px;
   box-sizing: border-box;
-  border-top: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
-  border-right: 1px solid #404040;
-  border-bottom: 1px solid #404040;
-  box-shadow: 1px 1px 0 #000000;
   justify-content: center;
   align-items: center;
 }
@@ -109,7 +116,7 @@ body {
   font-size: 14px;
   font-family: 'Perfect DOS VGA 437', monospace;
   font-weight: normal;
-  color: #000;
+  color: var(--text-color);
   /* padding :5px 5px 5px 5px; */
   margin: 5px;
   text-wrap: nowrap;
@@ -139,7 +146,7 @@ font-smooth: never;
 }
 
 .icon:hover {
-  background-color: rgba(0, 0, 139, 0.2);
+  background-color: color-mix(in srgb, var(--interactive-highlight) 20%, transparent);
 }
 
 .icon-img {
@@ -151,16 +158,16 @@ font-smooth: never;
 .icon-label {
   font-size: 12px;
   font-family: 'MS Sans Serif', sans-serif;
-  color: #ffffff;
+  color: var(--shadow-light);
   text-align: center;
   margin-top: 4px;
   text-wrap: nowrap;
-  text-shadow: 1px 1px 0 #000000;
+  text-shadow: 1px 1px 0 var(--shadow-black);
 }
 
 .icon.selected {
-  background-color: rgba(0, 0, 139, 0.5);
-  border: 1px solid #00008B;
+  background-color: color-mix(in srgb, var(--interactive-highlight) 50%, transparent);
+  border: 1px solid var(--interactive-highlight);
 }
 .window {
   position: absolute;
@@ -168,12 +175,7 @@ font-smooth: never;
   left: 100px;
   width: 400px;
   height: 300px;
-  border-top: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
-  border-right: 1px solid #404040;
-  border-bottom: 1px solid #404040;
-  background: #c0c0c0;
-  box-shadow: 2px 2px 0 #000000;
+  box-shadow: 2px 2px 0 var(--shadow-black);
   display: none;
   resize: both;
   overflow: hidden;
@@ -183,8 +185,8 @@ font-smooth: never;
 }
 
 .window-titlebar {
-  background: linear-gradient(to right, #00008B 0%, #0000FF 100%);
-  color: #fff;
+  background: linear-gradient(to right, var(--window-title-start) 0%, var(--window-title-end) 100%);
+  color: var(--shadow-light);
   padding: 2px 4px;
   cursor: move;
   display: flex;
@@ -201,12 +203,7 @@ font-smooth: never;
   font-weight: bold;
   padding: 1px 4px;
   margin-left: 2px;
-  background: #c0c0c0;
-  border-top: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
-  border-right: 1px solid #404040;
-  border-bottom: 1px solid #404040;
-  cursor: pointer;
+  cursor: pointer; /* Already on .beveled-box */
   width: 16px;
   height: 14px;
   display: flex;
@@ -215,21 +212,17 @@ font-smooth: never;
 }
 
 .window-controls button:hover {
-  background: #a0a0a0;
+  background: #a0a0a0; /* Keep hover for now, or add to variables */
 }
 
 .window-controls button:active {
-  border-top: 1px solid #404040;
-  border-left: 1px solid #404040;
-  border-right: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
 }
 
 .window-content {
   padding: 8px;
   height: calc(100% - 18px);
   overflow: auto;
-  background: #c0c0c0;
+  background: var(--surface-color);
 }
 
 .window-content::-webkit-scrollbar {
@@ -238,46 +231,31 @@ font-smooth: never;
 }
 
 .window-content::-webkit-scrollbar-track {
-  background: #c0c0c0;
+  background: var(--surface-color);
 }
 
 .window-content::-webkit-scrollbar-thumb {
-  background: #808080;
-  border-top: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
-  border-right: 1px solid #404040;
-  border-bottom: 1px solid #404040;
+  background: var(--surface-color);
 }
 
 .window-content::-webkit-scrollbar-corner {
-  background: #c0c0c0;
+  background: var(--surface-color);
 }
 .computer-window{
 }
 .taskbar-button {
   padding: 2px 8px;
-  background: linear-gradient(to bottom, #c0c0c0 0%, #808080 100%);
-  border-top: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
-  border-right: 1px solid #404040;
-  border-bottom: 1px solid #404040;
   font-family: 'MS Sans Serif', sans-serif;
   font-size: 11px;
   margin: 0 2px;
   cursor: pointer;
-  box-shadow: 1px 1px 0 #000000;
 }
 
 .taskbar-button:hover {
-  background: linear-gradient(to bottom, #d0d0d0 0%, #909090 100%);
+  /* Hover effect can be managed with variables too if desired */
 }
 
 .taskbar-button:active {
-  border-top: 1px solid #404040;
-  border-left: 1px solid #404040;
-  border-right: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
-  box-shadow: inset 1px 1px 0 #000000;
 }
 
 #taskbar-windows .taskbar-button:first-child {
@@ -292,8 +270,8 @@ font-smooth: never;
 
 .start-menu-left {
   width: 30px;
-  background: #808080;
-  border-right: 1px solid #404040;
+  background: var(--surface-color);
+  border-right: 1px solid var(--shadow-dark);
 }
 
 .start-menu-right {
@@ -311,13 +289,13 @@ font-smooth: never;
   padding: 2px 4px;
   cursor: pointer;
   font-size: 11px;
-  color: #000;
+  color: var(--text-color);
   user-select: none;
 }
 
 .start-menu-item:hover {
-  background-color: #000080;
-  color: #ffffff;
+  background-color: var(--interactive-highlight);
+  color: var(--interactive-highlight-text);
 }
 
 .start-menu-icon {
@@ -327,9 +305,9 @@ font-smooth: never;
 
 .start-menu-divider {
   height: 1px;
-  background: #808080;
+  background: var(--shadow-dark);
   margin: 4px 0;
-  border-top: 1px solid #ffffff;
+  border-top: 1px solid var(--shadow-light);
 }
 
 /* Folder Contents Styles */
@@ -347,8 +325,8 @@ font-smooth: never;
 }
 
 .folder-item:hover {
-  background-color: #000080;
-  color: #ffffff;
+  background-color: var(--interactive-highlight);
+  color: var(--interactive-highlight-text);
 }
 
 /* Computer Window Styles */
@@ -362,12 +340,11 @@ font-smooth: never;
 }
 
 .computer-drive:hover {
-  background-color: #000080;
-  color: #ffffff;
+  background-color: var(--interactive-highlight);
+  color: var(--interactive-highlight-text);
 }
 
 .drive-icon {
   margin-right: 8px;
   font-size: 16px;
 }
-

@@ -8,125 +8,103 @@
   <link href="https://fonts.cdnfonts.com/css/perfect-dos-vga-437" rel="stylesheet">
 </head>
 <body>
-  <div class="task-manager">
-    <div class="act-start-button" id="startButton">
+  <footer class="task-manager">
+    <button class="act-start-button beveled-box" id="startButton">
       <img src="/assets/win95 start.png" alt="Win95-start-logo" class="start-logo" />
-      <div class="start">Start</div>
-    </div>
+      <span class="start">Start</span>
+    </button>
     <div id="taskbar-windows"></div>
-  </div>
+  </footer>
 
-  <div class="start-menu" id="startMenu">
+  <nav class="start-menu beveled-box" id="startMenu" aria-label="Start Menu">
     <div class="start-menu-content">
       <div class="start-menu-left">
         <img src="/assets/sidebar-image.Cvh9Zs2s.png" alt="windows95" class="windows95">
-        <div class="gray"></div>
+        <div class="start-menu-sidebar-bg"></div>
       </div>
       <div class="start-menu-right">
-        <div class="start-menu-section">
-          <div class="start-menu-item" onclick="openFolder('Programs', '<h2>Programs</h2><p>Accessories</p><p>Games</p><p>Utilities</p>')">
+        <ul class="start-menu-section">
+          <li class="start-menu-item" data-folder-name="Programs" data-folder-content="<h2>Programs</h2><p>Accessories</p><p>Games</p><p>Utilities</p>">
             <span class="start-menu-icon">📁</span>
             Programs
-          </div>
-          <div class="start-menu-item" onclick="openFolder('Documents', '<h2>My Documents</h2><p>Recent Documents</p><p>My Pictures</p><p>My Music</p>')">
+          </li>
+          <li class="start-menu-item" data-folder-name="Documents" data-folder-content="<h2>My Documents</h2><p>Recent Documents</p><p>My Pictures</p><p>My Music</p>">
             <span class="start-menu-icon">📄</span>
             Documents
-          </div>
-          <div class="start-menu-item" onclick="openFolder('Settings', '<h2>Control Panel</h2><p>Display</p><p>System</p><p>Network</p>')">
+          </li>
+          <li class="start-menu-item" data-folder-name="Settings" data-folder-content="<h2>Control Panel</h2><p>Display</p><p>System</p><p>Network</p>">
             <span class="start-menu-icon">⚙️</span>
             Settings
-          </div>
-          <div class="start-menu-item" onclick="openFolder('Find', '<h2>Find Files or Folders</h2><p>Search for files...</p>')">
+          </li>
+          <li class="start-menu-item" data-folder-name="Find" data-folder-content="<h2>Find Files or Folders</h2><p>Search for files...</p>">
             <span class="start-menu-icon">🔍</span>
             Find
-          </div>
-          <div class="start-menu-item" onclick="openFolder('Help', '<h2>Windows Help</h2><p>Getting Started</p><p>Tips & Tricks</p>')">
+          </li>
+          <li class="start-menu-item" data-folder-name="Help" data-folder-content="<h2>Windows Help</h2><p>Getting Started</p><p>Tips & Tricks</p>">
             <span class="start-menu-icon">❓</span>
             Help
-          </div>
-          <div class="start-menu-item" onclick="openFolder('Run', '<h2>Run</h2><p>Type the name of a program...</p>')">
+          </li>
+          <li class="start-menu-item" data-folder-name="Run" data-folder-content="<h2>Run</h2><p>Type the name of a program...</p>">
             <span class="start-menu-icon">▶️</span>
             Run
-          </div>
-        </div>
+          </li>
+        </ul>
         <div class="start-menu-divider"></div>
-        <div class="start-menu-section">
-          <div class="start-menu-item" onclick="openFolder('Shutdown', '<h2>Shut Down Windows</h2><p>Are you sure you want to shut down?</p>')">
+        <ul class="start-menu-section">
+          <li class="start-menu-item" data-folder-name="Shutdown" data-folder-content="<h2>Shut Down Windows</h2><p>Are you sure you want to shut down?</p>">
             <span class="start-menu-icon">⏻</span>
             Shut Down...
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
-  </div>
+  </nav>
 
-  <div class="time">
+  <div class="time beveled-box-inset">
     <div class="clock">what</div>
   </div>
 
-  <div class="icons">
-    <div class="icon" ondblclick='openMyComputer()'>
+  <main class="icons">
+    <div class="icon" data-icon-type="my-computer">
       <img src="/assets/Computer.png" alt="computer-icon" class="icon-img" />
       <div class="icon-label">My Computer</div>
     </div>
 
-    <div class="icon" ondblclick="openFolder('My Documents', `
-      <h2>My Documents</h2>
-      <div class='folder-contents'>
-        <div class='folder-item' onclick='openFolder(\"Recent Documents\", \"<h2>Recent Documents</h2><p>Document1.doc</p><p>Document2.txt</p>\")'>📄 Recent Documents</div>
-        <div class='folder-item' onclick='openFolder(\"My Pictures\", \"<h2>My Pictures</h2><p>Photo1.jpg</p><p>Photo2.png</p>\")'>🖼️ My Pictures</div>
-        <div class='folder-item' onclick='openFolder(\"My Music\", \"<h2>My Music</h2><p>Song1.mp3</p><p>Song2.wav</p>\")'>🎵 My Music</div>
-      </div>
-    `)">
+    <div class="icon" data-icon-type="my-documents">
       <img src="/assets/folder.png" alt="folder-icon" class="icon-img" />
       <div class="icon-label">My Documents</div>
     </div>
 
-    <div class="icon" ondblclick="openPhotosFolder()">
+    <div class="icon" data-icon-type="photos">
       <img src="/assets/folder.png" alt="photos-icon" class="icon-img" />
       <div class="icon-label">Photos</div>
     </div>
 
-    <div class="icon" ondblclick="openFolder('Recycle Bin', `
-      <h2>Recycle Bin</h2>
-      <p>Empty</p>
-    `)">
+    <div class="icon" data-icon-type="recycle-bin">
       <img src="/assets/folder.png" alt="recycle-icon" class="icon-img" />
       <div class="icon-label">Recycle Bin</div>
     </div>
 
-    <div class="icon" ondblclick="openFolder('Network Neighborhood', `
-      <h2>Network Neighborhood</h2>
-      <p>No network connections found.</p>
-    `)">
+    <div class="icon" data-icon-type="network">
       <img src="/assets/folder.png" alt="network-icon" class="icon-img" />
       <div class="icon-label">Network Neighborhood</div>
     </div>
 
-    <div class="icon" ondblclick="openFolder('Internet Explorer', `
-      <h2>Internet Explorer</h2>
-      <p>Welcome to the World Wide Web!</p>
-    `)">
+    <div class="icon" data-icon-type="ie">
       <img src="/assets/folder.png" alt="ie-icon" class="icon-img" />
       <div class="icon-label">Internet Explorer</div>
     </div>
 
-    <div class="icon" ondblclick="openFolder('Notepad', `
-      <h2>Untitled - Notepad</h2>
-      <textarea style='width:100%;height:200px;border:none;background:white;font-family:monospace;'>Welcome to Notepad!</textarea>
-    `)">
+    <div class="icon" data-icon-type="notepad">
       <img src="/assets/folder.png" alt="notepad-icon" class="icon-img" />
       <div class="icon-label">Notepad</div>
     </div>
 
-    <div class="icon" ondblclick="openFolder('Paint', `
-      <h2>Untitled - Paint</h2>
-      <div style='width:100%;height:200px;background:white;border:1px solid #000;display:flex;align-items:center;justify-content:center;'>Paint Canvas</div>
-    `)">
+    <div class="icon" data-icon-type="paint">
       <img src="/assets/folder.png" alt="paint-icon" class="icon-img" />
       <div class="icon-label">Paint</div>
     </div>
-  </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
