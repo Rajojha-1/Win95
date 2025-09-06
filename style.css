@@ -12,7 +12,7 @@
 }
 @font-face {
   font-family: 'Levi Windows';
-  src: url('/assets/leviwindows/Windows\ Regular.ttf') format('truetype');
+  src: url('assets/leviwindows/Windows\ Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
