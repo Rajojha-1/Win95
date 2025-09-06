@@ -299,7 +299,7 @@ font-smooth: never;
 }
 
 .window:has(.photos-canvas) .folder-item::before {
-  content: url(/assets/download.png);
+  content: url(assets/download.png);
   font-size: 10px;
   margin-bottom: 0px;
 }
