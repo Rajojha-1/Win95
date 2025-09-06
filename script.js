@@ -79,11 +79,11 @@
       name: 'Resume',
       content: `
         <div class="pdf-toolbar">
-            <a href="/assets/sample_resume.pdf" target="_blank" class="beveled-box pdf-button">📄 Open in New Tab</a>
-            <a href="/assets/sample_resume.pdf" download="Janhavi_Resume.pdf" class="beveled-box pdf-button">💾 Download</a>
+            <a href="assets/sample_resume.pdf" target="_blank" class="beveled-box pdf-button">📄 Open in New Tab</a>
+            <a href="assets/sample_resume.pdf" download="Janhavi_Resume.pdf" class="beveled-box pdf-button">💾 Download</a>
         </div>
         <div class="photos-canvas beveled-box-inset" style="padding: 0; overflow: hidden;">
-            <iframe src="/assets/sample_resume.pdf" style="width: 100%; height: 100%; border: none;"></iframe>
+            <iframe src="assets/sample_resume.pdf" style="width: 100%; height: 100%; border: none;"></iframe>
         </div>
         <div class="status-bar">
             <div class="status-bar-panel beveled-box-inset"></div>
