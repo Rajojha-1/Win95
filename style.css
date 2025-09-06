@@ -10,7 +10,12 @@
   --window-title-start: #00008B;
   --window-title-end: #0000FF;
 }
-
+@font-face {
+  font-family: 'Levi Windows';
+  src: url('/assets/leviwindows/Windows\ Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   background-color: #008080;
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><rect width="2" height="2" fill="%23008080"/><rect x="2" y="2" width="2" height="2" fill="%23008080"/></svg>');
@@ -24,9 +29,9 @@ body {
 
 .beveled-box {
   background-color: var(--surface-color);
-  border-top: 1px solid var(--shadow-light);
+  border-top: 2px solid var(--shadow-light);
   border-left: 1px solid var(--shadow-light);
-  border-right: 1px solid var(--shadow-dark);
+  border-right: 2px solid var(--shadow-dark);
   border-bottom: 1px solid var(--shadow-dark);
   box-shadow: 1px 1px 0 var(--shadow-black);
 }
@@ -54,8 +59,8 @@ body {
 .act-start-button {
   display: flex;
   align-items: center;
-  padding: 2px 6px;
-  margin: 3px;
+  padding: 0.5px 8px;
+  margin: 4px;
   cursor: pointer;
   z-index: 1001;
 }
@@ -69,17 +74,19 @@ body {
   image-rendering: pixelated;
 }
 .start {
-  font: 17px 'MS Sans Serif';
-  font-weight: bolder;
-  margin-bottom: 2px;
+  font-size: 16px ;
+  font-weight: bold;
+  font-family: 'Levi Windows', monospace;
+  font-display: pixelated;
+  margin-bottom: 1px;
 }
 .start-menu {
   position: fixed;
   bottom: 35px;
   left: 0px;
-  height: 300px;
-  width: 200px;
-  box-shadow: 2px 2px 0 var(--shadow-black);
+  height: 280px;
+  width: 170px;
+  box-shadow: 1px 1px 0 var(--shadow-black);
   padding: 0;
   display: none;
   font-family: inherit;
@@ -89,24 +96,26 @@ body {
     margin: 0;
     padding: 0;
     bottom: 0;
+    position:absolute;
     display: flex;
     height: 150px;
-    width: 30px;
+    width: 25px;
 }
 .start-menu-sidebar-bg{
     height: 100%;
     width: 100%;
-    background-color: var(--surface-color);
-    border-right: 1px solid var(--shadow-dark);
+    background-color: gray;
 }
 .time{
   height: auto;
   width: auto;
   z-index: 1000;
   bottom: 0;
+  z-index: 1001;
   display: flex;
   position: absolute;
   right: 0;
+  margin-left: auto;
   margin: 3px;
   box-sizing: border-box;
   justify-content: center;
@@ -114,13 +123,14 @@ body {
 }
 .clock{
   font-size: 14px;
-  font-family: 'Perfect DOS VGA 437', monospace;
+  font-family: 'Levi Windows', monospace;
+  font-weight: bold;
   font-weight: normal;
   color: var(--text-color);
   /* padding :5px 5px 5px 5px; */
-  margin: 5px;
+  margin: 4px;
   text-wrap: nowrap;
-  word-spacing: -2px;
+  word-spacing: 2px;
   /* line-height: 1; */
   -webkit-font-smoothing: none;
 -moz-osx-font-smoothing: grayscale;
@@ -129,9 +139,14 @@ font-smooth: never;
 }
 .icons {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* This makes icons stack downwards first */
+  flex-wrap: wrap; /* This allows them to wrap into new columns */
+  align-content: flex-start; /* Aligns new columns to the top-left */
+  height: calc(100vh - 35px); /* Sets the height of the desktop area */
   gap: 20px;
+  font-family: 'Levi Windows', monospace;
   padding: 20px;
+  box-sizing: border-box; /* Ensures padding is included in the height calculation */
 }
 
 .icon {
@@ -156,12 +171,11 @@ font-smooth: never;
 }
 
 .icon-label {
-  font-size: 12px;
-  font-family: 'MS Sans Serif', sans-serif;
+  font-size: 15px;
+  /* font-family: 'MS Sans Serif', sans-serif; */
   color: var(--shadow-light);
   text-align: center;
   margin-top: 4px;
-  text-wrap: nowrap;
   text-shadow: 1px 1px 0 var(--shadow-black);
 }
 
@@ -185,7 +199,7 @@ font-smooth: never;
 }
 
 .window-titlebar {
-  background: linear-gradient(to right, var(--window-title-start) 0%, var(--window-title-end) 100%);
+  background-color: rgb(2, 2, 121);
   color: var(--shadow-light);
   padding: 2px 4px;
   cursor: move;
@@ -195,7 +209,11 @@ font-smooth: never;
   user-select: none;
   font-size: 11px;
   font-weight: bold;
-  height: 18px;
+  height: 25px;
+}
+
+.window-controls {
+  display: flex;
 }
 
 .window-controls button {
@@ -217,12 +235,178 @@ font-smooth: never;
 
 .window-controls button:active {
 }
+/* Target ONLY Photos window */
+.window[data-window-name="Photos"] {
+  font-family: 'Levi Windows', monospace;
+  font-size: 17px;
+  background: white;
+  color: black;
+  border: 2px solid #808080;
+}
+
+/* Titlebar */
+.window:has(.photos-canvas) .window-titlebar {
+  background: #000080; /* dark blue */
+  color: white;
+  font-weight: bold;
+  padding: 2px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Menu bar (File, Edit, View, Help) */
+.window:has(.photos-canvas) .menu-bar {
+  display: flex;
+  gap: 20px;
+  background: #c0c0c0;
+  border-bottom: 0px solid #808080;
+  padding: 0px 0px;
+}
+
+.window:has(.photos-canvas) .menu-bar span {
+  cursor: default;
+  padding: 0 4px;
+}
+
+/* Folder contents */
+.window:has(.photos-canvas) .folder-contents {
+  display: flex;
+  flex-direction: row; /* Ensure horizontal layout */
+  padding: 10px;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 20px;
+  /* background is now on the canvas */
+}
+
+/* The new white canvas area */
+.window:has(.photos-canvas) .photos-canvas {
+  background: white;
+  flex-grow: 1; /* Allow canvas to grow and fill available space */
+  height: 0; /* Set initial height to 0 for flex-grow to work correctly */
+  overflow: auto; /* Add scrollbars if content overflows */
+  box-sizing: border-box;
+}
+
+/* Folder items */
+.window:has(.photos-canvas) .folder-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40px;
+  text-align: center;
+  cursor: default;
+}
+
+.window:has(.photos-canvas) .folder-item::before {
+  content: url(/assets/download.png);
+  font-size: 10px;
+  margin-bottom: 0px;
+}
+
+/* The new status bar at the bottom */
+.window:has(.photos-canvas) .status-bar {
+  display: flex;
+  gap: 4px;
+  height: 22px;
+  flex-shrink: 0; /* Prevent the status bar from shrinking */
+  background: var(--surface-color);
+  padding: 2px;
+  box-sizing: border-box;
+  font-size: 11px;
+}
+
+.window:has(.photos-canvas) .status-bar-panel {
+  padding: 0px 4px;
+  flex-basis: 50%; /* Each panel takes up half the space */
+}
 
 .window-content {
-  padding: 8px;
-  height: calc(100% - 18px);
+  padding: 0; /* Padding is handled by more specific rules or is zero */
+  height: calc(100% - 25px); /* Height of window minus titlebar */
   overflow: auto;
   background: var(--surface-color);
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack children vertically */
+}
+
+/* Add padding specifically for the Photos window content area */
+.window:has(.photos-canvas) .window-content {
+  padding: 0 4px 4px 4px; /* Add some padding around the canvas */
+  gap: 4px; /* Add a small gap between menu bar and canvas */
+}
+
+/* --- Styles for Resume/PDF Window --- */
+
+.pdf-toolbar {
+  display: flex;
+  gap: 8px;
+  padding: 4px;
+  background: var(--surface-color);
+  border-bottom: 1px solid var(--shadow-dark);
+  flex-shrink: 0; /* Prevent toolbar from shrinking */
+}
+
+.pdf-button {
+  padding: 2px 8px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.pdf-button:active {
+  border-top: 1px solid var(--shadow-dark);
+  border-left: 1px solid var(--shadow-dark);
+  border-right: 1px solid var(--shadow-light);
+  border-bottom: 1px solid var(--shadow-light);
+  box-shadow: inset 1px 1px 0 var(--shadow-black);
+}
+
+/* --- Styles for Photo Items in Folders --- */
+.photo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+  padding: 5px;
+  border: 1px solid transparent;
+}
+
+.photo-item:hover {
+  background-color: color-mix(in srgb, var(--interactive-highlight) 20%, transparent);
+  border: 1px dotted var(--interactive-highlight);
+}
+
+.photo-item-thumbnail {
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+  border: 1px solid var(--shadow-dark);
+  background-color: var(--shadow-light);
+  padding: 1px;
+}
+
+.photo-item-label {
+  font-size: 12px;
+  margin-top: 4px;
+  word-wrap: break-word;
+}
+
+/* --- Styles for Paint App --- */
+.paint-canvas-container {
+  flex-grow: 1; /* Make container fill available space */
+  background: var(--shadow-dark); /* BG color for the inset area */
+  overflow: hidden; /* Hide any overflow */
+  padding: 0;
+}
+
+.paint-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
 }
 
 .window-content::-webkit-scrollbar {
@@ -246,9 +430,9 @@ font-smooth: never;
 .taskbar-button {
   padding: 2px 8px;
   font-family: 'MS Sans Serif', sans-serif;
-  font-size: 11px;
+  font-size: 15px;
   margin: 0 2px;
-  cursor: pointer;
+  cursor:pointer;
 }
 
 .taskbar-button:hover {
@@ -258,8 +442,8 @@ font-smooth: never;
 .taskbar-button:active {
 }
 
-#taskbar-windows .taskbar-button:first-child {
-  margin-left: 80px;
+#taskbar-windows {
+  margin-left: 4px;
 }
 
 /* Start Menu Styles */
@@ -271,12 +455,13 @@ font-smooth: never;
 .start-menu-left {
   width: 30px;
   background: var(--surface-color);
-  border-right: 1px solid var(--shadow-dark);
 }
 
 .start-menu-right {
   flex: 1;
-  padding: 4px;
+    font-family: 'Levi Windows', monospace;
+
+  padding: 0px;
 }
 
 .start-menu-section {
@@ -286,9 +471,11 @@ font-smooth: never;
 .start-menu-item {
   display: flex;
   align-items: center;
-  padding: 2px 4px;
+  padding: 4px 4px;
   cursor: pointer;
-  font-size: 11px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-size: 15px;
   color: var(--text-color);
   user-select: none;
 }
@@ -305,7 +492,7 @@ font-smooth: never;
 
 .start-menu-divider {
   height: 1px;
-  background: var(--shadow-dark);
+  background: var(--shadow-ligh);
   margin: 4px 0;
   border-top: 1px solid var(--shadow-light);
 }
@@ -330,13 +517,21 @@ font-smooth: never;
 }
 
 /* Computer Window Styles */
-.computer-drive {
-  display: flex;
+.window:has(.photos-canvas) .folder-item[data-file-type="pdf"],
+.computer-drive{
+  display: flex; /* This was in .computer-drive, now shared */
   align-items: center;
   padding: 4px 8px;
   cursor: pointer;
   border: 1px solid transparent;
   font-size: 12px;
+}
+
+.window:has(.photos-canvas) .folder-item[data-file-type="pdf"]::before {
+  content: url(/assets/pdf_icon.png); /* Make sure you have a pdf_icon.png in /assets */
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
 }
 
 .computer-drive:hover {

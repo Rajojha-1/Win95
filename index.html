@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Janhavi</title>
+  <title>Win95</title>
  <link rel="stylesheet" href="style.css" />
+ <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.cdnfonts.com/css/perfect-dos-vga-437" rel="stylesheet">
 </head>
 <body>
@@ -14,6 +15,9 @@
       <span class="start">Start</span>
     </button>
     <div id="taskbar-windows"></div>
+    <div class="time beveled-box-inset">
+      <div class="clock">what</div>
+    </div>
   </footer>
 
   <nav class="start-menu beveled-box" id="startMenu" aria-label="Start Menu">
@@ -23,46 +27,52 @@
         <div class="start-menu-sidebar-bg"></div>
       </div>
       <div class="start-menu-right">
-        <ul class="start-menu-section">
-          <li class="start-menu-item" data-folder-name="Programs" data-folder-content="<h2>Programs</h2><p>Accessories</p><p>Games</p><p>Utilities</p>">
-            <span class="start-menu-icon">📁</span>
-            Programs
-          </li>
-          <li class="start-menu-item" data-folder-name="Documents" data-folder-content="<h2>My Documents</h2><p>Recent Documents</p><p>My Pictures</p><p>My Music</p>">
-            <span class="start-menu-icon">📄</span>
-            Documents
-          </li>
-          <li class="start-menu-item" data-folder-name="Settings" data-folder-content="<h2>Control Panel</h2><p>Display</p><p>System</p><p>Network</p>">
-            <span class="start-menu-icon">⚙️</span>
-            Settings
-          </li>
-          <li class="start-menu-item" data-folder-name="Find" data-folder-content="<h2>Find Files or Folders</h2><p>Search for files...</p>">
-            <span class="start-menu-icon">🔍</span>
-            Find
-          </li>
-          <li class="start-menu-item" data-folder-name="Help" data-folder-content="<h2>Windows Help</h2><p>Getting Started</p><p>Tips & Tricks</p>">
-            <span class="start-menu-icon">❓</span>
-            Help
-          </li>
-          <li class="start-menu-item" data-folder-name="Run" data-folder-content="<h2>Run</h2><p>Type the name of a program...</p>">
-            <span class="start-menu-icon">▶️</span>
-            Run
-          </li>
-        </ul>
+        <div class="start-menu-section">
+          <a href="https://www.instagram.com/">
+                      <div class="instagram start-menu-item flex items-center space-x-4">
+            <img src="/assets/instagram-logo-png_seeklogo-306452.webp" alt="" class="h-7 w-7">
+            <div class="instagram-text">Instagram</div>
+          </div>
+          </a>
+          <a href="https://www.twitter.com/">
+            <div class="twitter start-menu-item flex items-center space-x-4">
+              <img src="/assets/x_logo_PNG18.webp" alt="" class="h-7 w-7">
+              <div class="twitter-text">Twitter</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/">
+            <div class="linkedIn start-menu-item flex items-center space-x-4">
+              <img src="/assets/linkedin-logo-white-png-image-9.webp" alt="" class="h-7 w-7">
+              <div class="linkedin-text">LinkedIn</div>
+            </div>
+          </a>
+          <a href="https://www.github.com/">
+            <div class="github start-menu-item flex items-center space-x-4">
+              <img src="/assets/github-icon-1-logo.webp" alt="" class="h-7 w-7">
+              <div class="github-text">GitHub</div>
+            </div>
+          </a>
+          <a href="https://leetcode.com/u/Rajojha-1/">
+                      <div class="leetcode start-menu-item flex items-center space-x-4">
+            <img src="/assets/free-leetcode-logo-icon-svg-png-download-2944960.webp" alt="" class="h-7 w-7">
+            <div class="leetcode-text">LeetCode</div>
+          </div>
+          </a>
+        </div>
         <div class="start-menu-divider"></div>
-        <ul class="start-menu-section">
-          <li class="start-menu-item" data-folder-name="Shutdown" data-folder-content="<h2>Shut Down Windows</h2><p>Are you sure you want to shut down?</p>">
+        <div class="start-menu-section">
+          <div class="start-menu-item Resume flex" data-folder-name="Resume">
+            <span class=" start-menu-icon"><img src="/assets/folder.png" alt="" class="h-7 w-7 " ></span>
+            <div class="resume-text">Resume</div>
+          </div>
+          <div class="start-menu-item" data-folder-name="Shutdown" data-folder-content="<h2>Shut Down Windows</h2><p>Are you sure you want to shut down?</p>">
             <span class="start-menu-icon">⏻</span>
             Shut Down...
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
-
-  <div class="time beveled-box-inset">
-    <div class="clock">what</div>
-  </div>
 
   <main class="icons">
     <div class="icon" data-icon-type="my-computer">
@@ -80,15 +90,11 @@
       <div class="icon-label">Photos</div>
     </div>
 
-    <div class="icon" data-icon-type="recycle-bin">
+    <div class="icon" data-icon-type="Resume">
       <img src="/assets/folder.png" alt="recycle-icon" class="icon-img" />
-      <div class="icon-label">Recycle Bin</div>
+      <div class="icon-label">Resume</div>
     </div>
 
-    <div class="icon" data-icon-type="network">
-      <img src="/assets/folder.png" alt="network-icon" class="icon-img" />
-      <div class="icon-label">Network Neighborhood</div>
-    </div>
 
     <div class="icon" data-icon-type="ie">
       <img src="/assets/folder.png" alt="ie-icon" class="icon-img" />
