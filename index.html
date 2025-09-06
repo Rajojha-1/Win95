@@ -17,8 +17,47 @@
   </div>
 
   <div class="start-menu" id="startMenu">
-    <img src="/assets/sidebar-image.Cvh9Zs2s.png" alt="windows95" class="windows95">
-    <div class="gray"></div>
+    <div class="start-menu-content">
+      <div class="start-menu-left">
+        <img src="/assets/sidebar-image.Cvh9Zs2s.png" alt="windows95" class="windows95">
+        <div class="gray"></div>
+      </div>
+      <div class="start-menu-right">
+        <div class="start-menu-section">
+          <div class="start-menu-item" onclick="openFolder('Programs', '<h2>Programs</h2><p>Accessories</p><p>Games</p><p>Utilities</p>')">
+            <span class="start-menu-icon">📁</span>
+            Programs
+          </div>
+          <div class="start-menu-item" onclick="openFolder('Documents', '<h2>My Documents</h2><p>Recent Documents</p><p>My Pictures</p><p>My Music</p>')">
+            <span class="start-menu-icon">📄</span>
+            Documents
+          </div>
+          <div class="start-menu-item" onclick="openFolder('Settings', '<h2>Control Panel</h2><p>Display</p><p>System</p><p>Network</p>')">
+            <span class="start-menu-icon">⚙️</span>
+            Settings
+          </div>
+          <div class="start-menu-item" onclick="openFolder('Find', '<h2>Find Files or Folders</h2><p>Search for files...</p>')">
+            <span class="start-menu-icon">🔍</span>
+            Find
+          </div>
+          <div class="start-menu-item" onclick="openFolder('Help', '<h2>Windows Help</h2><p>Getting Started</p><p>Tips & Tricks</p>')">
+            <span class="start-menu-icon">❓</span>
+            Help
+          </div>
+          <div class="start-menu-item" onclick="openFolder('Run', '<h2>Run</h2><p>Type the name of a program...</p>')">
+            <span class="start-menu-icon">▶️</span>
+            Run
+          </div>
+        </div>
+        <div class="start-menu-divider"></div>
+        <div class="start-menu-section">
+          <div class="start-menu-item" onclick="openFolder('Shutdown', '<h2>Shut Down Windows</h2><p>Are you sure you want to shut down?</p>')">
+            <span class="start-menu-icon">⏻</span>
+            Shut Down...
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="time">
@@ -26,40 +65,66 @@
   </div>
 
   <div class="icons">
-    <div class="icon" ondblclick='openFolder("Computer", `
-      <div class="computer-window"></div>
-    `)'>
+    <div class="icon" ondblclick='openMyComputer()'>
       <img src="/assets/Computer.png" alt="computer-icon" class="icon-img" />
-      <div class="icon-label">Computer</div>
+      <div class="icon-label">My Computer</div>
     </div>
 
-    <div class="icon" ondblclick="openFolder('Camera', `
-      <h2>Camera</h2>
-      <img src='/assets/camera-preview.png' style='width:100px;'>
-      <p>Ready to snap a photo!</p>
-    `)">
-      <img src="/assets/camera.png" alt="camera-icon" class="icon-img" />
-      <div class="icon-label">Camera</div>
-    </div>
-
-    <div class="icon" ondblclick="openFolder('Folder', `
-      <h2>My Folder</h2>
-      <p>This folder contains documents and images.</p>
-      <ul>
-        <li>Document1.txt</li>
-        <li>Image1.png</li>
-      </ul>
+    <div class="icon" ondblclick="openFolder('My Documents', `
+      <h2>My Documents</h2>
+      <div class='folder-contents'>
+        <div class='folder-item' onclick='openFolder(\"Recent Documents\", \"<h2>Recent Documents</h2><p>Document1.doc</p><p>Document2.txt</p>\")'>📄 Recent Documents</div>
+        <div class='folder-item' onclick='openFolder(\"My Pictures\", \"<h2>My Pictures</h2><p>Photo1.jpg</p><p>Photo2.png</p>\")'>🖼️ My Pictures</div>
+        <div class='folder-item' onclick='openFolder(\"My Music\", \"<h2>My Music</h2><p>Song1.mp3</p><p>Song2.wav</p>\")'>🎵 My Music</div>
+      </div>
     `)">
       <img src="/assets/folder.png" alt="folder-icon" class="icon-img" />
-      <div class="icon-label">Folder</div>
+      <div class="icon-label">My Documents</div>
     </div>
 
-    <div class="icon" ondblclick="openFolder('Mail', `
-      <h2>Inbox</h2>
-      <p>You have <strong>2 new messages</strong>.</p>
+    <div class="icon" ondblclick="openPhotosFolder()">
+      <img src="/assets/folder.png" alt="photos-icon" class="icon-img" />
+      <div class="icon-label">Photos</div>
+    </div>
+
+    <div class="icon" ondblclick="openFolder('Recycle Bin', `
+      <h2>Recycle Bin</h2>
+      <p>Empty</p>
     `)">
-      <img src="/assets/mail.png" alt="mail-icon" class="icon-img" />
-      <div class="icon-label">Mail</div>
+      <img src="/assets/folder.png" alt="recycle-icon" class="icon-img" />
+      <div class="icon-label">Recycle Bin</div>
+    </div>
+
+    <div class="icon" ondblclick="openFolder('Network Neighborhood', `
+      <h2>Network Neighborhood</h2>
+      <p>No network connections found.</p>
+    `)">
+      <img src="/assets/folder.png" alt="network-icon" class="icon-img" />
+      <div class="icon-label">Network Neighborhood</div>
+    </div>
+
+    <div class="icon" ondblclick="openFolder('Internet Explorer', `
+      <h2>Internet Explorer</h2>
+      <p>Welcome to the World Wide Web!</p>
+    `)">
+      <img src="/assets/folder.png" alt="ie-icon" class="icon-img" />
+      <div class="icon-label">Internet Explorer</div>
+    </div>
+
+    <div class="icon" ondblclick="openFolder('Notepad', `
+      <h2>Untitled - Notepad</h2>
+      <textarea style='width:100%;height:200px;border:none;background:white;font-family:monospace;'>Welcome to Notepad!</textarea>
+    `)">
+      <img src="/assets/folder.png" alt="notepad-icon" class="icon-img" />
+      <div class="icon-label">Notepad</div>
+    </div>
+
+    <div class="icon" ondblclick="openFolder('Paint', `
+      <h2>Untitled - Paint</h2>
+      <div style='width:100%;height:200px;background:white;border:1px solid #000;display:flex;align-items:center;justify-content:center;'>Paint Canvas</div>
+    `)">
+      <img src="/assets/folder.png" alt="paint-icon" class="icon-img" />
+      <div class="icon-label">Paint</div>
     </div>
   </div>
 
